@@ -19,3 +19,12 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', '$h
       $scope.phone = data;
     });
   }]);
+
+var moviesControllers = angular.module('moviesControllers',[]);
+moviesControllers.controller('Movielist',['$scope','$http', function($scope, $http){
+  $http.get('http://www.omdbapi.com/?s=love').
+      success(function(data){
+      $scope.movies = data;
+      })
+
+}])
